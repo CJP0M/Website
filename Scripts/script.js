@@ -226,18 +226,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const music = document.getElementById("background-music");
   const musicToggle = document.getElementById("music-toggle");
 
+  music.muted = true;
+  music.play().catch(() => {});
+
   function unmuteAndPlay() {
     if (music.muted) {
       music.muted = false;
       music.play();
       musicToggle.textContent = "🔈";
     }
+    window.removeEventListener("mousemove", unmuteAndPlay);
     window.removeEventListener("click", unmuteAndPlay);
-    window.removeEventListener("keydown", unmuteAndPlay);
   }
 
+  window.addEventListener("mousemove", unmuteAndPlay);
   window.addEventListener("click", unmuteAndPlay);
-  window.addEventListener("keydown", unmuteAndPlay);
 
   musicToggle.addEventListener("click", () => {
     if (music.paused) {
