@@ -410,3 +410,109 @@ nav {
     transform: scale(2);
   }
 }
+
+@media (max-width: 768px) {
+  header {
+    padding: 2.5rem 1.2rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0.8rem 1rem;
+  }
+
+  nav a {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  main {
+    padding: 1.2rem 1rem;
+  }
+
+  .section {
+    padding: 1.3rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .section p,
+  .section li {
+    font-size: 1rem;
+  }
+
+  .portfolio-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .portfolio-gallery img {
+    height: 150px;
+  }
+
+  #music-toggle {
+    width: 44px;
+    height: 44px;
+    font-size: 1.4rem;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  footer {
+    font-size: 0.85rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.7rem;
+  }
+
+  header p {
+    font-size: 0.95rem;
+  }
+
+  nav {
+    gap: 0.5rem;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.7rem;
+  }
+
+  .section h2 {
+    font-size: 1.35rem;
+  }
+
+  .portfolio-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.9rem;
+  }
+
+  .portfolio-gallery img {
+    height: 130px;
+  }
+
+  #music-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
