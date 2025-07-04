@@ -222,33 +222,22 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("mouseup", () => {
     mouse.isDown = false;
   });
+});
 
+window.addEventListener("load", () => {
   const music = document.getElementById("background-music");
-  const musicToggle = document.getElementById("music-toggle");
+  const toggleBtn = document.getElementById("music-toggle");
 
-  music.muted = true;
-  music.play().catch(() => {});
+  toggleBtn.textContent = "🔇";
 
-  function unmuteAndPlay() {
+  toggleBtn.addEventListener("click", () => {
     if (music.muted) {
       music.muted = false;
       music.play();
-      musicToggle.textContent = "🔈";
-    }
-    window.removeEventListener("mousemove", unmuteAndPlay);
-    window.removeEventListener("click", unmuteAndPlay);
-  }
-
-  window.addEventListener("mousemove", unmuteAndPlay);
-  window.addEventListener("click", unmuteAndPlay);
-
-  musicToggle.addEventListener("click", () => {
-    if (music.paused) {
-      music.play();
-      musicToggle.textContent = "🔈";
+      toggleBtn.textContent = "🔊";
     } else {
-      music.pause();
-      musicToggle.textContent = "🔇";
+      music.muted = true;
+      toggleBtn.textContent = "🔇";
     }
   });
 });
