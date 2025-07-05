@@ -131,20 +131,107 @@
         <h2>Portfolio</h2>
         <p>Check out my past work:</p>
         <div class="portfolio-gallery">
-          <img src="Avatars/a1.png" alt="Avatar 1" loading="lazy" />
-          <img src="Avatars/a2.png" alt="Avatar 2" loading="lazy" />
-          <img src="Avatars/a3.png" alt="Avatar 3" loading="lazy" />
-          <img src="Avatars/a4.png" alt="Avatar 4" loading="lazy" />
-          <img src="Avatars/a5.png" alt="Avatar 5" loading="lazy" />
-          <img src="Avatars/a6.png" alt="Avatar 6" loading="lazy" />
-          <img src="Avatars/a7.png" alt="Avatar 7" loading="lazy" />
-          <img src="Avatars/a8.png" alt="Avatar 8" loading="lazy" />
-          <img src="Avatars/a9.png" alt="Avatar 9" loading="lazy" />
-          <img src="Avatars/a10.png" alt="Avatar 10" loading="lazy" />
-          <img src="Avatars/a11.png" alt="Avatar 11" loading="lazy" />
-          <img src="Avatars/a12.png" alt="Avatar 12" loading="lazy" />
+          <img
+            src="Avatars/a1.png"
+            alt="Avatar 1"
+            loading="lazy"
+            data-id="a1"
+          />
+          <img
+            src="Avatars/a2.png"
+            alt="Avatar 2"
+            loading="lazy"
+            data-id="a2"
+          />
+          <img
+            src="Avatars/a3.png"
+            alt="Avatar 3"
+            loading="lazy"
+            data-id="a3"
+          />
+          <img
+            src="Avatars/a4.png"
+            alt="Avatar 4"
+            loading="lazy"
+            data-id="a4"
+          />
+          <img
+            src="Avatars/a5.png"
+            alt="Avatar 5"
+            loading="lazy"
+            data-id="a5"
+          />
+          <img
+            src="Avatars/a6.png"
+            alt="Avatar 6"
+            loading="lazy"
+            data-id="a6"
+          />
+          <img
+            src="Avatars/a7.png"
+            alt="Avatar 7"
+            loading="lazy"
+            data-id="a7"
+          />
+          <img
+            src="Avatars/a8.png"
+            alt="Avatar 8"
+            loading="lazy"
+            data-id="a8"
+          />
+          <img
+            src="Avatars/a9.png"
+            alt="Avatar 9"
+            loading="lazy"
+            data-id="a9"
+          />
+          <img
+            src="Avatars/a10.png"
+            alt="Avatar 10"
+            loading="lazy"
+            data-id="a10"
+          />
+          <img
+            src="Avatars/a11.png"
+            alt="Avatar 11"
+            loading="lazy"
+            data-id="a11"
+          />
+          <img
+            src="Avatars/a12.png"
+            alt="Avatar 12"
+            loading="lazy"
+            data-id="a12"
+          />
+          <img
+            src="Avatars/a13.png"
+            alt="Avatar 13"
+            loading="lazy"
+            data-id="a13"
+          />
+          <img
+            src="Avatars/a14.png"
+            alt="Avatar 14"
+            loading="lazy"
+            data-id="a14"
+          />
         </div>
       </section>
+
+      <div
+        id="avatar-modal"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        tabindex="-1"
+      >
+        <div class="modal-content">
+          <button class="close-btn" aria-label="Close modal">&times;</button>
+          <img id="modal-img" src="" alt="" />
+          <p id="modal-text"></p>
+        </div>
+      </div>
     </main>
 
     <footer>
@@ -159,6 +246,7 @@
     <button id="music-toggle" aria-label="Toggle Music">🔇</button>
 
     <script src="Scripts/script.js"></script>
+    <script src="Scripts/avatar.js"></script>
   </body>
 </html>
 
