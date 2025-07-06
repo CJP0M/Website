@@ -10,15 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
     a3: { title: "Avatar 3 - Steampunk", id: "a3" },
     a4: { title: "Avatar 4 - Friend 1", id: "a4" },
     a5: { title: "Avatar 5 - Friend 2", id: "a5" },
-    a6: { title: "Avatar 6 - Cartoon Style", id: "a6" },
+    a6: { title: "Avatar 6 - Prismarine", id: "a6" },
     a7: { title: "Avatar 7 - Kiwi", id: "a7" },
-    a8: { title: "Avatar 8 - Sci-fi Alien", id: "a8" },
-    a9: { title: "Avatar 9 - Elegant Mage", id: "a9" },
+    a8: { title: "Avatar 8 - Amethyst", id: "a8" },
+    a9: { title: "Avatar 9 - Ice", id: "a9" },
     a10: { title: "Avatar 10 - SennaVr", id: "a10" },
     a11: { title: "Avatar 11 - Stradale", id: "a11" },
     a12: { title: "Avatar 12 - TheRollingStone", id: "a12" },
-    a13: { title: "Avatar 13 - Cyber Ninja", id: "a13" },
-    a14: { title: "Avatar 14 - Mythical Creature", id: "a14" },
+    a13: { title: "Avatar 13 - Goober 1", id: "a13" },
+    a14: { title: "Avatar 14 - Goober 2", id: "a14" },
+    a15: { title: "Avatar 15 - Amethyst V2", id: "a15" },
   };
 
   document.querySelectorAll(".portfolio-gallery img").forEach((img) => {
