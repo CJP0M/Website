@@ -10,7 +10,6 @@ async function getUserCountry() {
   try {
     const res = await fetch("https://ipapi.co/json/");
     const data = await res.json();
-    console.log("Detected country code:", data.country_code);
     return data.country_code || "US";
   } catch {
     console.log("Failed to detect country, defaulting to US");
