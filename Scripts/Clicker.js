@@ -38,8 +38,19 @@ async function loadLeaderboard() {
   }
 }
 
+async function loadStats() {
+  try {
+    const res = await fetch("http://localhost:3000/stats");
+    const data = await res.json();
+    updateStats(data);
+  } catch (err) {
+    console.error("Failed to load stats:", err);
+  }
+}
+
 button.addEventListener("click", () => {
   sendClick();
 });
 
+loadStats();
 loadLeaderboard();

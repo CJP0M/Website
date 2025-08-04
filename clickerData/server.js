@@ -1,4 +1,5 @@
 const express = require("express");
+const fs = require("fs");
 const geoip = require("geoip-lite");
 const cors = require("cors");
 
@@ -20,9 +21,11 @@ app.post("/click", (req, res) => {
   const ip =
     req.headers["x-forwarded-for"]?.split(",")[0] || req.socket.remoteAddress;
   const geo = geoip.lookup(ip);
-  const country = geo?.country || "Unknown";
+  const country = geo?.country || "US";
 
   clicks[country] = (clicks[country] || 0) + 1;
+  fs.writeFileSync("clicks.json", JSON.stringify(clicks, null, 2));
+
   const totalClicks = Object.values(clicks).reduce((a, b) => a + b, 0);
 
   res.json({
@@ -39,6 +42,22 @@ app.get("/top100", (req, res) => {
     .map(([country, clicks]) => ({ country, clicks }));
 
   res.json(sorted);
+});
+
+app.get("/stats", (req, res) => {
+  const ip =
+    req.headers["x-forwarded-for"]?.split(",")[0] || req.socket.remoteAddress;
+  const geo = geoip.lookup(ip);
+  const country = geo?.country || "US";
+
+  const yourClicks = clicks[country] || 0;
+  const globalClicks = Object.values(clicks).reduce((a, b) => a + b, 0);
+
+  res.json({
+    country,
+    yourCountryClicks: yourClicks,
+    globalClicks,
+  });
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
