@@ -247,6 +247,40 @@
           <p id="modal-text"></p>
         </div>
       </div>
+
+      <section id="mozzarella-clicker" class="section fade-in">
+        <h2>Click the Mozzarella Stick!</h2>
+        <p>
+          Click the cheese to support your country! Every click helps fund the
+          mozzarella madness 🍕
+        </p>
+
+        <button
+          id="mozzarella-button"
+          aria-label="Click to support"
+          class="ripple"
+        >
+          🧀 Mozzarella Stick
+        </button>
+
+        <div class="clicker-stats">
+          <p>
+            <strong>Your Country:</strong>
+            <span id="your-country">Detecting...</span>
+          </p>
+          <p>
+            <strong>Country Clicks:</strong> <span id="country-clicks">0</span>
+          </p>
+          <p>
+            <strong>Global Clicks:</strong> <span id="global-clicks">0</span>
+          </p>
+        </div>
+
+        <div class="leaderboard">
+          <h3>🌍 Top 100 Countries</h3>
+          <ol id="leaderboard-list"></ol>
+        </div>
+      </section>
     </main>
 
     <footer>
@@ -262,6 +296,7 @@
 
     <script src="Scripts/script.js"></script>
     <script src="Scripts/avatar.js"></script>
+    <script src="Scripts/Clicker.js"></script>
   </body>
 </html>
 

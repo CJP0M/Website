@@ -1,0 +1,13 @@
+{
+  "name": "mozzarella-clicker",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node clickerData/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "geoip-lite": "^1.4.10"
+  }
+}

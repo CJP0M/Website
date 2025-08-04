@@ -450,6 +450,49 @@ nav {
   cursor: pointer;
 }
 
+#mozzarella-button {
+  margin: 1.5rem 0;
+  padding: 1.1rem 2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: var(--mint);
+  color: var(--black);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#mozzarella-button:hover {
+  background: var(--green);
+  box-shadow: 0 6px 18px var(--glow-color);
+}
+
+.clicker-stats p {
+  font-size: 1.1rem;
+  color: var(--white);
+  margin: 0.3rem 0;
+}
+
+.leaderboard {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--green);
+}
+
+.leaderboard ol {
+  margin-top: 1rem;
+  padding-left: 1.3rem;
+  max-height: 300px;
+  overflow-y: auto;
+  color: var(--light);
+}
+
+.leaderboard li {
+  margin-bottom: 0.3rem;
+}
+
 @keyframes rippleAnim {
   to {
     opacity: 0;
