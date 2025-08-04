@@ -1,23 +1,24 @@
+const API_BASE = "https://website-1kj4.onrender.com";
+
 const button = document.getElementById("mozzarella-button");
 const countryText = document.getElementById("your-country");
 const countryClicks = document.getElementById("country-clicks");
 const globalClicks = document.getElementById("global-clicks");
 const leaderboardList = document.getElementById("leaderboard-list");
 
-async function sendClick() {
+async function getUserCountry() {
   try {
-    const res = await fetch("http://localhost:3000/click", {
-      method: "POST",
-    });
+    const res = await fetch("https://ipapi.co/json/");
     const data = await res.json();
-    updateStats(data);
-    loadLeaderboard();
-  } catch (err) {
-    console.error("Click failed:", err);
+    console.log("Detected country code:", data.country_code);
+    return data.country_code || "US";
+  } catch {
+    console.log("Failed to detect country, defaulting to US");
+    return "US";
   }
 }
 
-function updateStats(data) {
+async function updateStats(data) {
   countryText.textContent = data.country;
   countryClicks.textContent = data.yourCountryClicks;
   globalClicks.textContent = data.globalClicks;
@@ -25,7 +26,7 @@ function updateStats(data) {
 
 async function loadLeaderboard() {
   try {
-    const res = await fetch("http://localhost:3000/top100");
+    const res = await fetch(`${API_BASE}/top100`);
     const top = await res.json();
     leaderboardList.innerHTML = "";
     top.forEach((entry, index) => {
@@ -40,7 +41,7 @@ async function loadLeaderboard() {
 
 async function loadStats() {
   try {
-    const res = await fetch("http://localhost:3000/stats");
+    const res = await fetch(`${API_BASE}/stats`);
     const data = await res.json();
     updateStats(data);
   } catch (err) {
@@ -48,9 +49,25 @@ async function loadStats() {
   }
 }
 
-button.addEventListener("click", () => {
-  sendClick();
-});
+async function sendClick() {
+  try {
+    const country = await getUserCountry();
+
+    const res = await fetch(`${API_BASE}/click`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ country }),
+    });
+
+    const data = await res.json();
+    updateStats(data);
+    loadLeaderboard();
+  } catch (err) {
+    console.error("Click failed:", err);
+  }
+}
+
+button.addEventListener("click", sendClick);
 
 loadStats();
 loadLeaderboard();
