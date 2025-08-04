@@ -8,7 +8,7 @@ const leaderboardList = document.getElementById("leaderboard-list");
 
 async function getUserCountry() {
   try {
-    const res = await fetch("https://ipapi.co/json/");
+    const res = await fetch("https://ipwho.is/");
     const data = await res.json();
     return data.country_code || "US";
   } catch {
