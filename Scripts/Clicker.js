@@ -6,18 +6,7 @@ const countryClicks = document.getElementById("country-clicks");
 const globalClicks = document.getElementById("global-clicks");
 const leaderboardList = document.getElementById("leaderboard-list");
 
-async function getUserCountry() {
-  try {
-    const res = await fetch("https://ipwho.is/");
-    const data = await res.json();
-    return data.country_code || "US";
-  } catch {
-    console.log("Failed to detect country, defaulting to US");
-    return "US";
-  }
-}
-
-async function updateStats(data) {
+function updateStats(data) {
   countryText.textContent = data.country;
   countryClicks.textContent = data.yourCountryClicks;
   globalClicks.textContent = data.globalClicks;
@@ -50,14 +39,9 @@ async function loadStats() {
 
 async function sendClick() {
   try {
-    const country = await getUserCountry();
-
     const res = await fetch(`${API_BASE}/click`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ country }),
     });
-
     const data = await res.json();
     updateStats(data);
     loadLeaderboard();
@@ -67,6 +51,5 @@ async function sendClick() {
 }
 
 button.addEventListener("click", sendClick);
-
 loadStats();
 loadLeaderboard();

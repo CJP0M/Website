@@ -18,17 +18,10 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/click", (req, res) => {
-  const countryFromClient = req.body.country;
-  let country = "US";
-
-  if (countryFromClient && typeof countryFromClient === "string") {
-    country = countryFromClient;
-  } else {
-    const ip =
-      req.headers["x-forwarded-for"]?.split(",")[0] || req.socket.remoteAddress;
-    const geo = geoip.lookup(ip);
-    if (geo?.country) country = geo.country;
-  }
+  const ip =
+    req.headers["x-forwarded-for"]?.split(",")[0] || req.socket.remoteAddress;
+  const geo = geoip.lookup(ip);
+  const country = geo?.country || "US";
 
   clicks[country] = (clicks[country] || 0) + 1;
   fs.writeFileSync("clicks.json", JSON.stringify(clicks, null, 2));
